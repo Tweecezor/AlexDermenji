@@ -74,14 +74,14 @@ task("styles", () => {
 		.pipe(gulpif(env === "prod", gcmq()))
 		.pipe(gulpif(env === "prod", cleanCSS()))
 		.pipe(gulpif(env === "dev", sourcemaps.write()))
-		.pipe(dest("dist/css/"))
+		.pipe(dest("./dist/"))
 		.pipe(reload({ stream: true }));
 });
 
 task("server", () => {
 	browserSync.init({
 		server: {
-			baseDir: "./dist",
+			baseDir: "dist",
 		},
 		open: false,
 	});
@@ -101,7 +101,7 @@ task("scripts", () => {
 		)
 		.pipe(gulpif(env === "prod", uglify()))
 		.pipe(gulpif(env === "dev", sourcemaps.write()))
-		.pipe(dest("dist"))
+		.pipe(dest("./dist/"))
 		.pipe(reload({ stream: true }));
 });
 
