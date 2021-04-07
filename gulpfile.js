@@ -74,7 +74,7 @@ task("styles", () => {
 		.pipe(gulpif(env === "prod", gcmq()))
 		.pipe(gulpif(env === "prod", cleanCSS()))
 		.pipe(gulpif(env === "dev", sourcemaps.write()))
-		.pipe(dest("dist"))
+		.pipe(dest("dist/css/"))
 		.pipe(reload({ stream: true }));
 });
 
